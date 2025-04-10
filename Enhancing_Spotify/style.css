@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic ProN,Meiryo,MS Gothic;
+}
+body{
+    background-color: black;
+}
+.left {
+    width: 28vw;
+    height: 100vw;
+    background-color: #171716;
+    border-radius: 10px;
+}
+
+.right {
+    width: 72vw;
+    height: 100vw;
+    background: linear-gradient(180deg, #272626 1px, #000000);
+    border-radius: 10px;
+}
+.stick {
+    padding: 5px 0px 5px 0px;
+    height: 55px;
+    display: grid;
+    grid-template-columns: 140px 30vw 12.5vw 260px 350px;
+    background-color: black;
+    color: white;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+}
+
+.img {
+    display: flex;
+}
+
+.img li {
+    list-style: none;
+    width: 27px;
+}
+
+.img li img {
+    filter: invert(1);
+}
+
+.main {
+    grid-column: 1/2;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100px;
+    height: 48px;
+    padding: 3px;
+}
+
+.bgl {
+    padding: 2px;
+    background-color: #2a2a2a;
+    align-items: center;
+    border-radius: 100px;
+}
+
+#home{
+    translate: 9px;
+    width: 25px;
+}
+.logo{
+    transform: translate(10px);
+}
+.HOME{
+    display: flex;
+    background-color: #2a2a2a;
+    height: 40px !important;
+    width: 45px !important;
+    border-radius: 35px;
+    translate: 20px;
+}
+.sh{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 4fr 1fr;
+    grid-template-rows: 40px ;
+    width: 30vw;
+    height: 35px;
+    color: #adadad;
+}
+.searh{
+    grid-column: 2/3;
+}
+.SEARCH{
+    grid-column: 2/3;
+    justify-self:flex-start;
+}
+.Browse {
+    grid-column: 4/5;
+    justify-self: end;
+    transform: translate(-1vw);
+    border-left: 1px solid #adadad !important;
+    padding-left: 10px;
+}
+
+.Text{
+    grid-column: 3/4;
+    justify-self: flex-start;
+    width: 100% !important;
+    font-size: large;
+    transform: translateX(-2vw);
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 550;
+}
+.set{
+    grid-column: 4/5;
+    display: flex;
+    justify-content: center;
+}
+.setting{
+    color: #adadad;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    border-right: 2px solid #adadad;
+    gap: 10px;
+    width: 400px;
+    list-style: none;
+    font-weight:800;
+    font-size: 14px;
+}
+.login{
+    grid-column: 5/6;
+    color: #adadad;
+    width: 100%;
+}
+.logini{
+    display: inline-grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr 0.2fr 1fr 0.1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: small;
+}
+.inslogo{
+    grid-column: 2/3;
+    width: 15px !important;
+    justify-content: flex-end;
+    transform: translate(15px, 2px);
+
+}
+.Sign{
+    grid-column: 5/6;
+    width: 100% !important;
+}
+.MainLogin{
+    grid-column: 7/8;
+    width: 140% !important;
+    color: black;
+    background-color: white;
+    border-radius: 100px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:bolder;
+}
+.Install{
+    grid-column: 3/4;
+    justify-content: flex-start;
+}
