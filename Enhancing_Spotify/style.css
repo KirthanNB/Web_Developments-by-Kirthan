@@ -6,19 +6,6 @@
 body{
     background-color: black;
 }
-.left {
-    width: 28vw;
-    height: 100vw;
-    background-color: #171716;
-    border-radius: 10px;
-}
-
-.right {
-    width: 72vw;
-    height: 100vw;
-    background: linear-gradient(180deg, #272626 1px, #000000);
-    border-radius: 10px;
-}
 .stick {
     padding: 5px 0px 5px 0px;
     height: 55px;
@@ -67,6 +54,7 @@ body{
     width: 25px;
 }
 .logo{
+    cursor: pointer;
     transform: translate(10px);
 }
 .HOME{
@@ -76,6 +64,11 @@ body{
     width: 45px !important;
     border-radius: 35px;
     translate: 20px;
+    cursor: pointer;
+}
+.HOME:hover{
+    background-color: #3a3a3a;
+    transform: scale(1.05);
 }
 .sh{
     margin: 10px;
@@ -92,6 +85,11 @@ body{
 .SEARCH{
     grid-column: 2/3;
     justify-self:flex-start;
+    cursor: pointer;
+}
+.SEARCH:hover{
+    filter: brightness(2);
+    transform: scale(1.05);
 }
 .Browse {
     grid-column: 4/5;
@@ -99,10 +97,16 @@ body{
     transform: translate(-1vw);
     border-left: 1px solid #adadad !important;
     padding-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
-
+.Browse:hover{
+    filter: brightness(2);
+    transform: translateX(-1vw) scale(1.02);
+}
 .Text{
     grid-column: 3/4;
+    cursor: text;
     justify-self: flex-start;
     width: 100% !important;
     font-size: large;
@@ -128,6 +132,13 @@ body{
     font-weight:800;
     font-size: 14px;
 }
+.setting li{
+    cursor: pointer;
+}
+.setting li:hover{
+    color: #e3e3e3;
+    transform: scale(1.05);
+}
 .login{
     grid-column: 5/6;
     color: #adadad;
@@ -146,11 +157,21 @@ body{
     width: 15px !important;
     justify-content: flex-end;
     transform: translate(15px, 2px);
-
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.inslogo:hover{
+    filter: brightness(2);
+    transform: translate(15px, 2px) scale(1.05);
 }
 .Sign{
     grid-column: 5/6;
     width: 100% !important;
+    cursor: pointer;
+}
+.Sign:hover{
+    transform: scale(1.05);
+    color: #e3e3e3;
 }
 .MainLogin{
     grid-column: 7/8;
@@ -163,8 +184,106 @@ body{
     justify-content: center;
     align-items: center;
     font-weight:bolder;
+    cursor: pointer;
+}
+.MainLogin:hover{
+    background-color: rgb(230, 228, 228);
+    transform: scale(1.05);
 }
 .Install{
     grid-column: 3/4;
     justify-content: flex-start;
+    cursor: pointer;
+}
+.Install:hover{
+    color: #e3e3e3;
+    transform: scale(1.05);
+}
+.left {
+    width: 28vw;
+    background-color: #171716;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 50px auto;
+    height: 100vh;
+}
+.right {
+    width: 72vw;
+    background: linear-gradient(180deg, #272626 1px, #000000);
+    border: 0px;
+    border-radius: 10px;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px 80px auto;
+    padding: 0px 20px 0px 20px;
+    scroll-behavior: initial;
+}
+.library{
+    grid-row: 1/2;
+    color: white;
+    display: grid;
+    grid-template-columns: 3% 87% 10%;
+    margin: 10px;
+    padding: 10px;
+    justify-content: flex-start;
+}
+.Plus{
+    grid-column: 3/4;
+    width: 20px;
+    cursor: pointer;
+    padding: 4px;
+}
+.Plus:hover{
+    filter: brightness(2);
+    background-color: #2a2a2a;
+    border-radius: 100px;
+    transform: scale(1.05);
+}
+.Lib{
+    grid-column: 2/3;
+    font-weight:780;
+    cursor: context-menu;
+    padding: 4px;
+}
+div h1{
+    color: white;
+}
+.card{
+    color: white;
+    width: 200px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 200px 40px 60px;
+    padding: 10px;
+    background-color: #222222;
+    border-radius: 10px;
+}
+.card img{
+    grid-row: 1/2;
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.card h3{
+    grid-row: 2/3;
+    align-self: center;
+}
+.card p{
+    grid-row: 3/4;
+    align-self: center;
+}
+.trend{
+    grid-row: 2/3;
+}
+.trending{
+    grid-row: 3/4;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-auto-rows: 300px;
+    gap: 25px;
+    width: 100%;
+}
+.trendsongs{
+    cursor: pointer;
 }
