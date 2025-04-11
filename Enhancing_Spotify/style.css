@@ -200,24 +200,27 @@ body{
     transform: scale(1.05);
 }
 .left {
-    width: 28vw;
+    width: 25vw;
     background-color: #171716;
     border-radius: 10px;
     display: grid;
     grid-template-rows: 50px auto;
-    height: 100vh;
+    height: calc(100vh - 80px);
 }
 .right {
-    width: 72vw;
+    width: 75vw;
     background: linear-gradient(180deg, #272626 1px, #000000);
-    border: 0px;
     border-radius: 10px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     display: grid;
     grid-template-rows: 80px 80px auto;
     padding: 0px 20px 0px 20px;
     scroll-behavior: initial;
+    overflow-y: scroll;
 }
+::-webkit-scrollbar {
+    width: 2px;
+} 
 .library{
     grid-row: 1/2;
     color: white;
@@ -255,15 +258,20 @@ div h1{
     display: grid;
     grid-template-rows: 200px 40px 60px;
     padding: 10px;
-    background-color: #222222;
+    background-color: #181818;
     border-radius: 10px;
+    position: relative;
+    justify-content: center;
 }
-.card img{
+.sngimg{
     grid-row: 1/2;
     height: 200px;
     width: 200px;
     object-fit: contain;
     border-radius: 10px;
+    z-index: 1;
+    position:absolute;
+    justify-self: center;
 }
 .card h3{
     grid-row: 2/3;
@@ -279,7 +287,7 @@ div h1{
 .trending{
     grid-row: 3/4;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: 300px;
     gap: 25px;
     width: 100%;
@@ -287,3 +295,48 @@ div h1{
 .trendsongs{
     cursor: pointer;
 }
+.trendsongs:hover{
+    filter: brightness(1.15);
+}
+.play{
+    grid-row: 1/2;
+    width: 20px;
+    display: flex;
+    justify-self: end;
+    align-self: end;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background-color: #00ff6a;
+    border-radius: 100px;
+    opacity: 0;
+}
+@keyframes playbuttonIn {
+    from {
+      transform: translateY(60px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-5px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes playbuttonOut {
+    from {
+      transform: translateY(-5px);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(60px);
+      opacity: 0;
+    }
+  }
+  .play {
+    animation: playbuttonOut 0.5s ease-in-out forwards;
+  }
+  
+  .trendsongs:hover .play {
+    animation: playbuttonIn 0.5s ease-in-out forwards;
+  }
+    
