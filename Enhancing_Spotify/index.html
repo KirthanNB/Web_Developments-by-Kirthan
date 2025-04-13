@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - Web Player: Music for everyonet</title>
+    <title>Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Utility.css">
 </head>
@@ -27,8 +27,10 @@
                     <img class="Searchbar" src="Assets/Search.svg" alt="Search">
                 </li>
                 <li class="Text">
-                    What do you want to play? <li class="Browse">
-                    <img class="BrowseBar" src="Assets/box.svg" alt="Browse">
+                    <input type="text" placeholder="What do you want to play?" class="search-input">
+                    <li class="Browse">
+                        <img class="BrowseBar" src="Assets/box.svg" alt="Browse">
+                    </li>
                 </li>
             </ul>
         </div>
@@ -63,6 +65,10 @@
                     Your Library
                 </span>
                 <img class="Plus" src="Assets/plus.svg" alt="Add_Songs">
+            </div>
+            <div class="songs">
+                <ul>
+                </ul>
             </div>
         </div>
         <div class="right border">
@@ -158,26 +164,24 @@
                         <p>Kushagra, Bharath, Saheel</p>
                     </div>
                 </div>
-                <div class="trendsongs">
-                    <div class="card">
-                        <img class="play" src="Assets/Play.svg" alt="Play">
-                        <img class="sngimg" src="https://i.scdn.co/image/ab67616d00001e0283141000ee8ce3b893a0b425" alt="Song">
-                        <h3>Finding Her</h3>
-                        <p>Kushagra, Bharath, Saheel</p>
-                    </div>
+            </div>
+            <div class="playsong">
+                <p class="info">Song Name</p>
+                <div class="seekbar">
+                    <div class="fill"></div>
+                    <div class="circle"></div>
                 </div>
-                <div class="trendsongs">
-                    <div class="card">
-                        <img class="play" src="Assets/Play.svg" alt="Play">
-                        <img class="sngimg" src="https://i.scdn.co/image/ab67616d00001e0283141000ee8ce3b893a0b425" alt="Song">
-                        <h3>Finding Her</h3>
-                        <p>Kushagra, Bharath, Saheel</p>
-                    </div>
-                </div>
+                <button><img src="Assets/Backward.svg" alt="Backward"></button>
+                <button><img class="mainplay" src="Assets/Play.svg" alt="Play"></button>
+                <button><img src="Assets/Forward.svg" alt="Forward"></button>
+                <button><img src="Assets/Volume.svg" alt="Volume"></button>
+                <div class="timebar">00.00/00.00</div>
+                <div class="songtime"></div>
             </div>
         </div>
     </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
