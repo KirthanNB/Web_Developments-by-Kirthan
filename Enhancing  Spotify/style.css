@@ -10,7 +10,7 @@ body{
     padding: 5px 0px 5px 0px;
     height: 55px;
     display: grid;
-    grid-template-columns: 140px 30vw 12.5vw 260px 350px;
+    grid-template-columns: 140px 350px;
     background-color: black;
     color: white;
     align-items: center;
@@ -144,7 +144,10 @@ body{
     transform: scale(1.05);
 }
 .login{
-    grid-column: 5/6;
+    grid-column: 4/5;
+    display: flex;
+    justify-content: end;
+    translate: -5vw;
     color: #adadad;
     width: 100%;
 }
@@ -168,16 +171,16 @@ body{
     filter: brightness(2);
     transform: translate(15px, 2px) scale(1.05);
 }
-.Sign{
+.insta{
     grid-column: 5/6;
     width: 100% !important;
     cursor: pointer;
 }
-.Sign:hover{
+.insta:hover{
     transform: scale(1.05);
     color: #e3e3e3;
 }
-.MainLogin{
+.git{
     grid-column: 7/8;
     width: 140% !important;
     color: black;
@@ -190,16 +193,16 @@ body{
     font-weight:bolder;
     cursor: pointer;
 }
-.MainLogin:hover{
+.git:hover{
     background-color: rgb(230, 228, 228);
     transform: scale(1.05);
 }
-.Install{
+.Linkedin{
     grid-column: 3/4;
     justify-content: flex-start;
     cursor: pointer;
 }
-.Install:hover{
+.Linkedin:hover{
     color: #e3e3e3;
     transform: scale(1.05);
 }
@@ -238,7 +241,7 @@ body{
     filter: brightness(2);
     background-color: #2a2a2a;
     border-radius: 100px;
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 .Lib{
     grid-column: 2/3;
@@ -362,20 +365,21 @@ div h1{
     z-index: 2; 
     width: 75%;
     height: 80px;
-    background: linear-gradient(0deg, #15e602d0 , #00ff2ffb);
+    background: linear-gradient(14deg, #2fff00de, #d86790d3);
     color: rgb(0, 0, 0);
     display: grid;
     grid-template-rows: 20% auto;
-    grid-template-columns: 30%;
+    grid-template-columns: 30% auto auto auto 30%;
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
     border-radius:10px;
     transform: translateX(33%);
+    filter:drop-shadow(8);
 }
 
 .playsong .info {
-    grid-row: 2/3;
+    grid-row: 2/4;
     font-size: larger;
     font-weight: bold;
     overflow: hidden;
@@ -465,4 +469,9 @@ div h1{
 .timebar{
     font-weight: 600;
     font-size: medium;
+    grid-row: 2/4;
+    grid-column: 5/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
