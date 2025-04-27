@@ -1,17 +1,18 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic ProN,Meiryo,MS Gothic;
+    font-family: "Dancing Script", cursive ,Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic ProN,Meiryo,MS Gothic;
 }
 body{
     background-color: black;
+    overflow:hidden;
 }
 .stick {
     padding: 5px 0px 5px 0px;
     height: 55px;
     display: grid;
     grid-template-columns: 140px 350px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.249);
     color: white;
     align-items: center;
     position: sticky;
@@ -210,7 +211,7 @@ body{
     width: 75vw;
     background: linear-gradient(180deg, #3e040474 , #a3060670);
     border-radius: 10px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 160px);
     display: grid;
     grid-template-rows: 80px 80px auto;
     padding: 0px 20px 0px 20px;
@@ -255,15 +256,17 @@ div h1{
 .card{
     color: rgb(255, 255, 255);
     width: 200px;
-    height: 300px;
+    height: 350px;
     display: grid;
-    grid-template-rows: 200px 40px 60px;
+    grid-template-rows: 200px 40px 60px 40px;
     padding: 10px;
-    background: linear-gradient(45deg , rgb(97, 16, 16), #8b0260d4);
+    background: linear-gradient(45deg , rgba(97, 16, 16, 0.704), #8b0260a7);
     border-radius: 10px;
     position: relative;
     justify-content: center;
     background-blend-mode: darken;
+    justify-content: start;
+    border: 3.5px solid black;
 }
 .sngimg{
     grid-row: 1/2;
@@ -278,10 +281,18 @@ div h1{
 .card h3{
     grid-row: 2/3;
     align-self: center;
+    font-size: smaller;
 }
 .card p{
     grid-row: 3/4;
     align-self: center;
+    font-size: small;
+    font-weight: 300;
+}
+.card audio{
+    grid-row: 4/5;
+    width: 200px !important;
+    filter: invert(100%) brightness(1.2) contrast(1.2);
 }
 .trend{
     grid-row: 2/3;
@@ -289,10 +300,13 @@ div h1{
 .trending{
     grid-row: 3/4;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 300px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 350px;
     gap: 25px;
     width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
 }
 .trendsongs{
     cursor: pointer;
@@ -307,7 +321,7 @@ div h1{
     display: flex;
     justify-self: end;
     align-self: end;
-    position: relative;
+    position: absolute;
     z-index: 2;
     padding: 18px;
     border-radius: 100px;
@@ -334,8 +348,10 @@ div h1{
       opacity: 0;
     }
 }
-  .play {
+.play {
     animation: playbuttonOut 0.6s ease-in-out forwards;
+    width: 30px;
+    padding: 10px;
 }
 
 .trendsongs:hover .play {
@@ -365,7 +381,7 @@ div h1{
     z-index: 2; 
     width: 75%;
     height: 80px;
-    background: linear-gradient(14deg, #2fff00de, #d86790d3);
+    background: linear-gradient(14deg, #40ff00de, #f2ff00d3);
     color: rgb(0, 0, 0);
     display: grid;
     grid-template-rows: 20% auto;
@@ -401,7 +417,6 @@ div h1{
     width: 30px;
     height: 30px;
 }
-    
 .left {
     width: 25vw;
     border-radius: 10px;
@@ -431,7 +446,7 @@ div h1{
     font-weight:400;
     font-size: 14px;
     font-size: large;
-    background: linear-gradient(0deg, #1b77064a , #91030377);
+    background: linear-gradient(0deg, #28b3094a , #cf050577);
 }
 .music{
     grid-column: 1/2 !important;
@@ -475,3 +490,30 @@ div h1{
     justify-content: center;
     align-items: center;
 }
+@keyframes moveDown {
+    0% {
+      transform: translateY(-100px) translateX(-100px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.2;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(100vh) translateX(100vw);
+      opacity: 0;
+    }
+  }
+  
+  .anim img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    animation: moveDown 10s linear infinite;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  

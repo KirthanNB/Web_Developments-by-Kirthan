@@ -1,10 +1,11 @@
+searchSongsfromItunes("Kannada Songs");
 async function getSongs() {
 
     let songs = [];
 
     try {
 
-        const response = await fetch('http://127.0.0.1:3002/Songs/');
+        const response = await fetch('http://127.0.0.1:3000/Songs/');
 
         const html = await response.text();
 
@@ -32,7 +33,7 @@ async function getSongs() {
 
             .filter(href => href.endsWith('.mp3'))
 
-            .map(mp3 => `http://127.0.0.1:3002${mp3.replace(/\\/g, '/')}`);
+            .map(mp3 => `http://127.0.0.1:3000${mp3.replace(/\\/g, '/')}`);
 
 
 
@@ -93,9 +94,9 @@ function playmusic(song, e) {
 
                 currentAudio.play();
 
-                playIcon.src = "http://127.0.0.1:3002/Assets/Pause.svg";
+                playIcon.src = "http://127.0.0.1:3000/Assets/Pause.svg";
 
-                playButton.src = "http://127.0.0.1:3002/Assets/Pause.svg";
+                playButton.src = "http://127.0.0.1:3000/Assets/Pause.svg";
 
                 mainplay.src = playIcon.src;
 
@@ -103,9 +104,9 @@ function playmusic(song, e) {
 
                 currentAudio.pause();
 
-                playIcon.src = "http://127.0.0.1:3002/Assets/Play.svg";
+                playIcon.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
-                playButton.src = "http://127.0.0.1:3002/Assets/Play.svg";
+                playButton.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
                 mainplay.src = playIcon.src;
 
@@ -123,9 +124,9 @@ function playmusic(song, e) {
 
             currentAudio.pause();
 
-            playIcon.src = "http://127.0.0.1:3002/Assets/Play.svg";
+            playIcon.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
-            playButton.src = "http://127.0.0.1:3002/Assets/Play.svg";
+            playButton.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
             mainplay.src = playIcon.src;
 
@@ -133,9 +134,9 @@ function playmusic(song, e) {
 
             currentAudio.play();
 
-            playIcon.src = "http://127.0.0.1:3002/Assets/Pause.svg";
+            playIcon.src = "http://127.0.0.1:3000/Assets/Pause.svg";
 
-            playButton.src = "http://127.0.0.1:3002/Assets/Pause.svg";
+            playButton.src = "http://127.0.0.1:3000/Assets/Pause.svg";
 
             mainplay.src = playIcon.src;
 
@@ -155,21 +156,21 @@ function playmusic(song, e) {
 
             const icon = li.getElementsByTagName("img")[1];
 
-            icon.src = "http://127.0.0.1:3002/Assets/Play.svg";
+            icon.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
         });
 
 
 
-        currentAudio = new Audio(`http://127.0.0.1:3002/Songs/${song}.mp3`);
+        currentAudio = new Audio(`http://127.0.0.1:3000/Songs/${song}.mp3`);
 
         currentSong = song;
 
         currentAudio.play();
 
-        playIcon.src = "http://127.0.0.1:3002/Assets/Pause.svg";
+        playIcon.src = "http://127.0.0.1:3000/Assets/Pause.svg";
 
-        playButton.src = "http://127.0.0.1:3002/Assets/Pause.svg";
+        playButton.src = "http://127.0.0.1:3000/Assets/Pause.svg";
 
         mainplay.src = playIcon.src;
 
@@ -203,9 +204,9 @@ function playmusic(song, e) {
 
         currentAudio.addEventListener("ended", () => {
 
-            playIcon.src = "http://127.0.0.1:3002/Assets/Play.svg";
+            playIcon.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
-            playButton.src = "http://127.0.0.1:3002/Assets/Play.svg";
+            playButton.src = "http://127.0.0.1:3000/Assets/Play.svg";
 
             mainplay.src = playIcon.src;
 
@@ -341,7 +342,7 @@ document.querySelector(".SEARCH").addEventListener("click", searchSongs);
 // Enter key event listener (optional if you still want Enter to trigger search)
 document.getElementById("srh").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        searchSongs();  // Trigger search when Enter is pressed
+        searchSongsfromItunes(null);  // Trigger search when Enter is pressed
     }
 });
 
@@ -354,8 +355,74 @@ document.querySelector(".git").addEventListener("click", e=>{
 document.querySelector(".Linkedin").addEventListener("click", e=>{
     window.open("https://www.linkedin.com/in/kirthan-nb-8b522530b/", "_blank");
 })
+
+// Add event listener to all .play SVGs
+document.querySelectorAll('.play').forEach(svg => {
+    svg.addEventListener('click', function() {
+      // Get the song URL and track name from somewhere
+      const songUrl = this.getAttribute('data-url');  // Fetch song url from data attribute
+      const trackName = this.getAttribute('data-name'); // Fetch track name from data attribute
+  
+      // Create a temporary <a> tag to trigger download
+      const a = document.createElement('a');
+      a.href = songUrl;
+      a.download = `${trackName}.mp3`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+  });
+  
  
 }
 
+async function searchSongsfromItunes(songname){
+    const place = document.querySelector(".trending");
+    const head = document.querySelector(".trend");
+    if(!songname){
+        songname = document.getElementById("srh").value.trim().toLowerCase();
+        head.innerHTML = `${songname.toUpperCase()}`
+    }
+    if (place) {
+        place.innerHTML = 'Loading...';
+    }
+     try {
+        const url = `https://itunes.apple.com/search?term=${encodeURIComponent(songname)}&limit=10`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.results && data.results.length > 0) {
+            if (place) {
+                place.innerHTML = '';
+                data.results.forEach(song => {
+                    const songHTML = `
+                <div class="trendsongs">
+                    <div class="card">
+                        <img class="play" src="Assets/download.svg" alt="Download">
+                        <img class="sngimg" src="${song.artworkUrl100}"
+                            alt="Song">
+                        <h3>>${song.trackName}</h3>
+                        <p>${song.artistName}</p>
+                        <audio controls src="${song.previewUrl}"></audio>
+                    </div>
+                </div>
+                    `;
+                    place.innerHTML += songHTML;
+                });
+            }
+
+        } else {
+            if (place) {
+                place.innerHTML = 'No results found...';
+            }
+        }
+
+    } catch (error) {
+        console.error('Error fetching song from iTunes:', error);
+        if (place) {
+            place.innerHTML = 'Error occurred while searching...';
+        }
+    }
+}
 
 main();
